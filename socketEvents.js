@@ -21,7 +21,7 @@ module.exports = (io) => {
     })
 
     socket.on('SEND_MESSAGE', async (data) => {
-      console.log('mofoka');
+      console.log('');
     })
 
 
