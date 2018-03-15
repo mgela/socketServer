@@ -21,6 +21,9 @@ UserModel.findOrCreate = async (userData) => {
 UserModel.checkUser = async (userEmail) => {
 return await UserModel.findOne({email: userEmail})
 }
+UserModel.checkUserLogin = async (username, password) => {
+return await UserModel.findOne({username: username, password: password})
+}
 
 
 UserModel.createUser = (userData) => {
@@ -32,5 +35,6 @@ UserModel.createUser = (userData) => {
   })
   return user.save();
 }
+
 
 module.exports = UserModel;
