@@ -18,8 +18,8 @@ UserModel.findOrCreate = async (userData) => {
   return user
 }
 
-UserModel.checkUser = (userEmail) => {
-  UserModel.findOne({email: userEmail})
+UserModel.checkUser = async (userEmail) => {
+return await UserModel.findOne({email: userEmail})
 }
 
 

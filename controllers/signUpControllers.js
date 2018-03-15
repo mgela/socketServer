@@ -3,9 +3,10 @@ const userModel = require('../models/userModels');
 
 exports.auth = async (req, res) => {
    try{
+     console.log(req.body.email, 'req');
      const userz = await userModel.checkUser(req.body.email)
      await console.log(userz, 'userz');
-     if (userz === undefined) userModel.createUser(req.body)
+     if (userz === null) await userModel.createUser(req.body)
      res.sendStatus(200);
    } catch (e){
      res.sendStatus(500);

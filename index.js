@@ -5,10 +5,10 @@ const app = express();
 const Server = require('http').Server;
 const server = Server(app);
 const io = require('socket.io')(server);
-const socketEvents = require('./socketEvents');
+const socketEvents = require('./socketEvents/socketEvents');
 //express
 const bodyParser = require('body-parser');
-const router = require('./router');
+const router = require('./routes/router');
 const cors = require('cors');
 
 // const corsOptions = {origin:'http://localhost:3000'};
