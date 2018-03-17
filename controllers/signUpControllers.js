@@ -34,8 +34,7 @@ exports.auth = async (req, res) => {
 exports.listCoaches = async (req, res)=> {
   try {
     const coaches = await userModel.getCoaches()
-    await console.log(coaches, 'coaches');
-  // res.sendStatus(200)
+    res.send(coaches)
   } catch (e) {
     console.log(e);
   }

@@ -7,14 +7,16 @@ const coachSchema = new mongoose.Schema({
   password: String,
   picture: String,
   datesAvail: String,
-
 })
 
 
-const CachModel = mongoose.model('msc-users', userSchema)
+const CachModel = mongoose.model('msc-coaches', userSchema)
 
-
-
+// UserModel.getCoaches = async (userEmail) => {
+//   // const count = await UserModel.count()
+//
+// return await UserModel.find()
+// }
 
 CoachModel.createCoach = (userData) => {
   const coach = new CoachModel({
