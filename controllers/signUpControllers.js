@@ -33,6 +33,7 @@ exports.auth = async (req, res) => {
 }
 exports.listCoaches = async (req, res)=> {
   try {
+    console.log(23);
     const coaches = await userModel.getCoaches()
     res.send(coaches)
   } catch (e) {

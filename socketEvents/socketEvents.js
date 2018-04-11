@@ -1,23 +1,22 @@
 module.exports = (io) => {
   io.on('connection', (socket) => {
-    setInterval(() => {
-      console.log('action fired SET NEW DATE');
-      socket.emit('ACTION', {
-        type: 'SET_NEW_DATE',
-        data: {
-          time: new Date()
-        }
-      });
-    }, 5000);
-    console.log('user connected');
-    socket.emit('ACTION', {
-      type: 'SET_NEW_DATE',
-      data: {
-        time: new Date()
-      }
-    });
+
+
+    socket.on('SOCKET__CONNECT', async (data) => {
+      const {room} = data
+      console.log(data, 'this room');
+      socket.join(room)
+      console.log('user joined');
+    })
+
     socket.on('SOCKET__DISCONNECT', async (data) => {
       console.log('user logged off');
+    })
+    socket.on('SOCKET__MESSAGE', (data) => {
+        socket.broadcast.to(data.room).emit('ACTION', {
+          type: 'REFRESH_MESSAGES',
+          data
+        });
     })
 
     socket.on('SEND_MESSAGE', async (data) => {
